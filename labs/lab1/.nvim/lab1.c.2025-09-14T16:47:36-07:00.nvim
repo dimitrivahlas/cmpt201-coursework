@@ -1,0 +1,37 @@
+#define _POSIX_C_SOURCE 200809L
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+
+int main() {
+
+  char *buff = NULL;
+  size_t size = 0;
+  ssize_t nread;
+
+  printf("Etner a line ");
+  fflush(stdout);
+
+  nread = getline(&buff, &size, stdin);
+
+  if (nread == -1) {
+    perror("getline");
+    free(buff);
+    return 1;
+  }
+
+  // tkenizing on spaces
+  char *saveptr = NULL;
+  char *tok = strtok_r(buff, " ", &saveptr);
+
+  int i = 0;
+  while (tok != NULL) {
+    printf("Buff \%s", buff);
+    printf("token[%d] = \"%s\"\n", i++, tok);
+    tok = strtok_r(NULL, " ", &saveptr);
+  }
+
+  free(buff);
+  return 0;
+}

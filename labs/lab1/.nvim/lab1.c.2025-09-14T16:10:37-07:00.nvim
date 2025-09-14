@@ -1,0 +1,5 @@
+#include <stdio.h>
+
+int main() {
+  char* s = 
+  printf("Enter a line of user input for delimter)
