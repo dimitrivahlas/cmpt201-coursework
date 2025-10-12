@@ -1,0 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// global state variable
+char *getUserInput() {
+  // Getting user input
