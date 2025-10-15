@@ -1,0 +1,12 @@
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdio.h>
+
+
+int main() {
+  printf("Running \n");
+  pid_t pid = fork();
+  printf("ran");
+  return 0;
+}
+
